@@ -1,8 +1,7 @@
-Selenium-Maven-Template
+MOLGENIS selenium test
 =======================
 
-A maven template for Selenium that has the latest dependencies so that you can just check out and start writing tests in five easy steps.
-
+Thanks to the great selenium template from https://github.com/Ardesco/Selenium-Maven-Template
 
 1. Open a terminal window/command prompt
 2. Clone this project.
