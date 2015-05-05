@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
+import java.util.concurrent.TimeUnit;
 
 public class UploadAppTest extends DriverFactory
 {
@@ -38,6 +39,8 @@ public class UploadAppTest extends DriverFactory
 		//step2 (use defaults)
 		upload.next();
 		upload.next();
+
+		//check for errors
 		Assert.assertEquals("", upload.getValidationError());
 	}
 

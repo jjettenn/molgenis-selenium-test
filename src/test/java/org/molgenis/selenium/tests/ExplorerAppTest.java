@@ -16,7 +16,7 @@ public class ExplorerAppTest extends DriverFactory
 		driver = getDriver();
 
 		//todo: make this env variable
-		driver.get("http://molgenis01.target.rug.nl");
+		driver.get(Constants.MOLGENIS_HOME);
 
 		//get homepage
 		explorer = new ExplorerAppModel(driver);
@@ -29,7 +29,7 @@ public class ExplorerAppTest extends DriverFactory
 
 	@Test public void test2_openViaUrl()
 	{
-		driver.get("https://molgenis01.target.rug.nl/menu/main/dataexplorer?entity=org_molgenis_test_TypeTest");
+		driver.get(Constants.MOLGENIS_HOME + "/menu/main/dataexplorer?entity=org_molgenis_test_TypeTest");
 
 		Assert.assertEquals("TypeTest", explorer.getSelectedEntity());
 

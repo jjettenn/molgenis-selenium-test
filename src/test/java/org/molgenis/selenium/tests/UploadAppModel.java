@@ -5,16 +5,11 @@ import org.openqa.selenium.WebDriver;
 
 import java.io.File;
 
-/**
- * Created by mswertz on 05/05/15.
- */
 public class UploadAppModel
 {
 	private WebDriver driver;
 
-	public static String UPLOAD_ERROR = "upload-error";
-	//ugly, source of errors varies
-	public static String MOLGENIS_MESSAGE = "molgenis-alert";
+	public static String MOLGENIS_ALERT = "molgenis-alert";
 
 	public UploadAppModel(WebDriver driver)
 	{
@@ -31,9 +26,12 @@ public class UploadAppModel
 		driver.findElement(By.name("upload")).sendKeys(file.getAbsolutePath());
 	}
 
-	public void next()
+	public void next() throws InterruptedException
 	{
 		driver.findElement(By.partialLinkText("Next")).click();
+
+		//to accomodate for Ajax stuff
+		Thread.sleep(1000);
 	}
 
 	public void addToPackage(String hospital)
@@ -44,21 +42,16 @@ public class UploadAppModel
 	public String getValidationError()
 	{
 		String value = "";
+
 		try
 		{
-			value = driver.findElement(By.id(UPLOAD_ERROR)).getText();
+			value = driver.findElement(By.id(MOLGENIS_ALERT)).getText();
 		}
-		catch (Exception e)
+		catch (Exception e2)
 		{
-			try
-			{
-				value = driver.findElement(By.id(MOLGENIS_MESSAGE)).getText();
-			}
-			catch (Exception e2)
-			{
-				value = "";
-			}
+			value = "";
 		}
+
 		System.out.println("getAlert(): " + value);
 		return value;
 	}
