@@ -1,6 +1,6 @@
 MOLGENIS selenium test
 =======================
- 
+
 Thanks to the great selenium template from https://github.com/Ardesco/Selenium-Maven-Template
 
 1. Open a terminal window/command prompt
